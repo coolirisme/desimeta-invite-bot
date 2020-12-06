@@ -62,6 +62,8 @@ const sendMessages = () => {
               to: userName,
               subject: "/r/DesiMeta invite",
               text: inviteMessage
+            }).then().catch((x) => {
+              console.log('Error sending message');
             });
           });
 
