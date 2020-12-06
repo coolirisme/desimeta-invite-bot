@@ -62,23 +62,18 @@ const sendMessages = () => {
               to: userName,
               subject: "/r/DesiMeta invite",
               text: inviteMessage
-            }).then().catch((x) => {
-              console.log('Error sending message');
+            }).then((_) => {
+              console.log('Sent message to ' + userName);
+              let sql = 'INSERT INTO user(username) VALUES (\'' + userName + '\')';
+              db.run(sql, [], (err) => {
+                if (err) {
+                  return console.log(err.message);
+                }
+              });
+            }).catch((_) => {
+              console.log('Error sending message to ' + userName);
             });
           });
-
-          //Insert users to database
-          let placeholders = sentUsers.map((user) => '(?)').join(',');
-          let sql = 'INSERT INTO user(username) VALUES ' + placeholders;
-          if (sentUsers.length > 0) {
-            db.run(sql, sentUsers, (err) => {
-              if (err) {
-                return console.log(err.message);
-              } else {
-                return console.log('message sent to ' + sentUsers.length + ' user(s)');
-              }
-            });
-          }
         }
       });
     });
