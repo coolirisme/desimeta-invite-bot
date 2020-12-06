@@ -7,7 +7,7 @@ const inviteMessage = 'Namaskaram, \n\nYou might be aware of the rising Indophob
 due to very low participation by Indian redditors. \
 Popular subreddits like Chodi don\'t allow meta discussion posts while indiadiscussion is for \
 discussion related to India-verse subreddits only.\
-We are requesting you to join /r/DesiMeta - A meta subreddit concentrating \
+ We are requesting you to join /r/DesiMeta - A meta subreddit concentrating \
 all posts/comments related to India and Hinduism throughout the platform, \
 all under a single roof! Use this for bringing attention to any \
 misinformation or hateful content against the Indian/Hindu community.\n\n\
@@ -60,13 +60,11 @@ const sendMessages = () => {
 
           //Send messages to filtered users
           sentUsers.map(userName => {
-            /*
             client.composeMessage({
               to: userName,
               subject: "/r/DesiMeta invite",
               text: inviteMessage
             });
-            */
           });
 
           //Insert users to database
