@@ -6,7 +6,7 @@ const Sqlite3 = require('sqlite3');
 const inviteMessage = 'Namaskaram, \n\nYou might be aware of the rising Indophobia on international subreddits \
 due to very low participation by Indian redditors. \
 Popular subreddits like Chodi don\'t allow meta discussion posts while indiadiscussion is for \
-discussion related to India-verse subreddits only.\
+discussion related to India-verse subreddits only.\n\n\
  We are requesting you to join /r/DesiMeta - A meta subreddit concentrating \
 all posts/comments related to India and Hinduism throughout the platform, \
 all under a single roof! Use this for bringing attention to any \
