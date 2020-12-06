@@ -64,7 +64,7 @@ const sendMessages = () => {
               text: inviteMessage
             }).then((_) => {
               console.log('Sent message to ' + userName);
-              let sql = "INSERT INTO user(username, message_sent) VALUES ('${userName}', 'Y')";
+              let sql = `INSERT INTO user(username, message_sent) VALUES ('${userName}', 'Y')`;
               db.run(sql, [], (err) => {
                 if (err) {
                   return console.log(err.message);
@@ -72,7 +72,7 @@ const sendMessages = () => {
               });
             }).catch((_) => {
               console.log('Error sending message to ' + userName);
-              let sql = "INSERT INTO user(username, message_sent) VALUES ('${userName}', 'N')";
+              let sql = `INSERT INTO user(username, message_sent) VALUES ('${userName}', 'N')`;
               db.run(sql, [], (err) => {
                 if (err) {
                   return console.log(err.message);
