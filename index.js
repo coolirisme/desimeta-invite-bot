@@ -19,7 +19,7 @@ let db = new Sqlite3.Database('./users.db', (err) => {
     console.error(err.message);
   }
   db.serialize(() => {
-    db.run('CREATE TABLE IF NOT EXISTS user(username text default \'\')');
+    db.run('CREATE TABLE IF NOT EXISTS user(username text default \'\', message_sent text default \'\')');
   });
 });
 
@@ -64,7 +64,7 @@ const sendMessages = () => {
               text: inviteMessage
             }).then((_) => {
               console.log('Sent message to ' + userName);
-              let sql = 'INSERT INTO user(username) VALUES (\'' + userName + '\')';
+              let sql = "INSERT INTO user(username, message_sent) VALUES ('${userName}', 'Y')";
               db.run(sql, [], (err) => {
                 if (err) {
                   return console.log(err.message);
@@ -72,6 +72,12 @@ const sendMessages = () => {
               });
             }).catch((_) => {
               console.log('Error sending message to ' + userName);
+              let sql = "INSERT INTO user(username, message_sent) VALUES ('${userName}', 'N')";
+              db.run(sql, [], (err) => {
+                if (err) {
+                  return console.log(err.message);
+                }
+              });
             });
           });
         }
