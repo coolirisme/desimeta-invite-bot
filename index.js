@@ -14,7 +14,7 @@ misinformation or hateful content against the Indian/Hindu community.\n\n\
 Dhanyawaad!';
 
 //Open database
-let db = new Sqlite3.Database('./users.db', (err) => {
+const db = new Sqlite3.Database('./users.db', (err) => {
   if (err) {
     console.error(err.message);
   }
@@ -31,7 +31,7 @@ const uuidv4 = () => {
   });
 }
 
-let client = new Snoowrap({
+const client = new Snoowrap({
   userAgent: uuidv4(),
   username: process.env.REDDIT_USERNAME,
   password: process.env.REDDIT_PASSWORD,
@@ -39,8 +39,8 @@ let client = new Snoowrap({
   clientSecret: process.env.REDDIT_CLIENT_SECRET
 });
 
-const sendMessages = () => {
-  client.getNewComments('chodi').then((comments) => {
+const sendMessages = (subReddit) => {
+  client.getNewComments(subReddit).then((comments) => {
     //Get list of users message has beem sent to already
     db.serialize(() => {
       let sql = `SELECT username FROM user`;
@@ -84,7 +84,7 @@ const sendMessages = () => {
       });
     });
   });
-  setTimeout(() => sendMessages(), 60000);
+  setTimeout(() => sendMessages(subReddit), 60000);
 }
 
-sendMessages();
+sendMessages('chodi');
