@@ -83,7 +83,7 @@ const sendMessages = () => {
       });
     });
   });
-  setTimeout(() => sendMessages(), 120000);
+  setTimeout(() => sendMessages(), 60000);
 }
 
 sendMessages();
