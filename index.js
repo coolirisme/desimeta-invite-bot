@@ -3,6 +3,16 @@
 const Snoowrap = require('snoowrap');
 const Sqlite3 = require('sqlite3');
 
+const inviteMessage = 'Namaskaram, \n\nYou might be aware of the rising Indophobia on international subreddits \
+due to very low participation by Indian redditors. \
+Popular subreddits like Chodi don\'t allow meta discussion posts while indiadiscussion is for \
+discussion related to India-verse subreddits only.\
+We are requesting you to join /r/DesiMeta - A meta subreddit concentrating \
+all posts/comments related to India and Hinduism throughout the platform, \
+all under a single roof! Use this for bringing attention to any \
+misinformation or hateful content against the Indian/Hindu community.\n\n\
+Dhanyawaad!';
+
 //Open database
 let db = new Sqlite3.Database('./users.db', (err) => {
   if (err) {
@@ -29,6 +39,8 @@ let client = new Snoowrap({
   clientSecret: process.env.REDDIT_CLIENT_SECRET
 });
 
+console.log(inviteMessage);
+
 const sendMessages = () => {
   client.getNewComments('chodi').then((comments) => {
     //Get list of users message has beem sent to already
@@ -48,12 +60,11 @@ const sendMessages = () => {
 
           //Send messages to filtered users
           sentUsers.map(userName => {
-            console.log(userName);
             /*
             client.composeMessage({
               to: userName,
-              subject: "Hi, how's it going?",
-              text: 'Long time no see'
+              subject: "/r/DesiMeta invite",
+              text: inviteMessage
             });
             */
           });
