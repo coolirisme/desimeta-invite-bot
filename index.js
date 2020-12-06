@@ -58,22 +58,22 @@ const sendMessages = () => {
 
           //Send messages to filtered users
           sentUsers.map(userName => {
+            let successSQL = `INSERT INTO user(username, message_sent) VALUES ('${userName}', 'Y')`;
+            let errorSQL = `INSERT INTO user(username, message_sent) VALUES ('${userName}', 'N')`;
             client.composeMessage({
               to: userName,
               subject: "/r/DesiMeta invite",
               text: inviteMessage
             }).then((_) => {
               console.log('Sent message to ' + userName);
-              let sql = `INSERT INTO user(username, message_sent) VALUES ('${userName}', 'Y')`;
-              db.run(sql, [], (err) => {
+              db.run(successSQL, [], (err) => {
                 if (err) {
                   return console.log(err.message);
                 }
               });
             }).catch((_) => {
               console.log('Error sending message to ' + userName);
-              let sql = `INSERT INTO user(username, message_sent) VALUES ('${userName}', 'N')`;
-              db.run(sql, [], (err) => {
+              db.run(errorSQL, [], (err) => {
                 if (err) {
                   return console.log(err.message);
                 }
