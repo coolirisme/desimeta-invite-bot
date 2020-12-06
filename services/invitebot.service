@@ -1,0 +1,14 @@
+[Unit]
+Description=Runs evmbot
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/EVM-Haxxor-Bot
+ExecStart=/root/EVM-Haxxor-Bot/index.js
+TimeoutStartSec=0
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target
