@@ -39,8 +39,6 @@ let client = new Snoowrap({
   clientSecret: process.env.REDDIT_CLIENT_SECRET
 });
 
-console.log(inviteMessage);
-
 const sendMessages = () => {
   client.getNewComments('chodi').then((comments) => {
     //Get list of users message has beem sent to already
