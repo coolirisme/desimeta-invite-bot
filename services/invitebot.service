@@ -1,14 +1,14 @@
 [Unit]
-Description=Runs evmbot
+Description=/r/DesiMeta invitebot
 After=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/root/EVM-Haxxor-Bot
-ExecStart=/root/EVM-Haxxor-Bot/index.js
+WorkingDirectory=/root/desimeta-invite-bot
+ExecStart=/root/desimeta-invite-bot/index.js
 TimeoutStartSec=0
 Restart=on-failure
-RestartSec=5s
+RestartSec=10s
 
 [Install]
 WantedBy=default.target
