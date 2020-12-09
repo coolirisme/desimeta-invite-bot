@@ -87,4 +87,4 @@ const sendMessages = (subReddit) => {
   setTimeout(() => sendMessages(subReddit), 60000);
 }
 
-sendMessages('indianews');
+sendMessages('indiaspeaks');
