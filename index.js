@@ -8,9 +8,9 @@ due to very low participation by Indian redditors. \
 Popular subreddits like Chodi don\'t allow meta discussion posts while indiadiscussion is for \
 discussion related to India-verse subreddits only.\n\n\
  We are requesting you to join /r/DesiMeta - A meta subreddit concentrating \
-all posts/comments related to India and Hinduism throughout the platform, \
+all posts/comments related to India throughout the platform, \
 all under a single roof! Use this for bringing attention to any \
-misinformation or hateful content against the Indian/Hindu community.\n\n\
+misinformation or hateful content against the Indian community.\n\n\
 Dhanyawaad!';
 
 //Open database
