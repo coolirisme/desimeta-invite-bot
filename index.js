@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import Snoowrap from 'snoowrap';
-import { Database } from 'sqlite3';
+const Snoowrap = require('snoowrap');
+const Sqlite3 = require('sqlite3');
 
 const inviteMessage = 'Namaskaram, \n\nYou might be aware of the rising Indophobia on international subreddits \
 due to very low participation by Indian redditors. \
@@ -14,7 +14,7 @@ misinformation or hateful content against the Indian community.\n\n\
 Dhanyawaad!';
 
 //Open database
-const db = new Database('./users.db', (err) => {
+const db = new Sqlite3.Database('./users.db', (err) => {
   if (err) {
     console.error(err.message);
   }
